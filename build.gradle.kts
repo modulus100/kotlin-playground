@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.5.31"
     java
+    idea
 }
 
 group = "org.example"

@@ -69,8 +69,8 @@ class LRUCache<K, V>(private val maxSize: Int) : Cache<K, V> {
         head?.next?.prev = head
         cache[key] = head!!
 
-        if (node == tail) {
-            tail = node?.prev
-        }
+//        if (node == tail) {
+//            tail = node?.prev
+//        }
     }
 }
