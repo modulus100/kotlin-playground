@@ -42,6 +42,11 @@ class TextAutocomplete {
         }
     }
 
+    fun withValues(values: List<String>): TextAutocomplete {
+        values.forEach { insert(it) }
+        return this
+    }
+
     fun find(input: String): TrieNode? {
         var node = root
 

@@ -8,16 +8,13 @@ class TextAutocompleteTest {
     @Test
     fun `findAllMatches - returns all matches for empty input`() {
         // Arrange
-        val autocomplete = TextAutocomplete()
         val words = listOf(
             "ant", "anthology", "antagonist", "antonym",
             "fun", "function", "factory",
             "trie", "trigger", "trigonometry", "tripod"
         )
 
-        words.forEach {
-            autocomplete.insert(it)
-        }
+        val autocomplete = TextAutocomplete().withValues(words)
 
         // Act
         val node = autocomplete.find("")
@@ -32,16 +29,12 @@ class TextAutocompleteTest {
     @Test
     fun `findAllMatches - returns empty matches for not existing input`() {
         // Arrange
-        val autocomplete = TextAutocomplete()
         val words = listOf(
             "ant", "anthology", "antagonist", "antonym",
             "fun", "function", "factory",
             "trie", "trigger", "trigonometry", "tripod"
         )
-
-        words.forEach {
-            autocomplete.insert(it)
-        }
+        val autocomplete = TextAutocomplete().withValues(words)
 
         // Act
         val node = autocomplete.find("test")
@@ -53,7 +46,6 @@ class TextAutocompleteTest {
     @Test
     fun `findAllMatches - returns all endings what start with 'ant'`() {
         // Arrange
-        val autocomplete = TextAutocomplete()
         val words = listOf(
             "ant", "anthology", "antagonist", "antonym",
             "fun", "function", "factory",
@@ -64,9 +56,7 @@ class TextAutocompleteTest {
             "hology", "agonist", "onym"
         )
 
-        words.forEach {
-            autocomplete.insert(it)
-        }
+        val autocomplete = TextAutocomplete().withValues(words)
 
         // Act
         val node = autocomplete.find("ant")
