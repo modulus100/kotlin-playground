@@ -5,8 +5,10 @@ data class TrieNode(
     val isLast: Boolean = false,
     val children: MutableMap<String, TrieNode> = mutableMapOf()) {
 
-    fun insertChild(node: TrieNode) {
-        children[node.char] = node
+    fun insertIfMissing(char: String, isLast: Boolean) {
+        if (!children.containsKey(char)) {
+            children[char] = TrieNode(char, isLast)
+        }
     }
 
     fun findAllMatches(): MutableList<String> {
@@ -35,10 +37,7 @@ class TextAutocomplete {
 
         input.forEachIndexed { index, c ->
             val char = c.toString()
-
-            if (!node.children.containsKey(char)) {
-                node.insertChild(TrieNode(char, lastIndex == index))
-            }
+            node.insertIfMissing(char, index == lastIndex)
             node = node.children[char]!!
         }
     }
