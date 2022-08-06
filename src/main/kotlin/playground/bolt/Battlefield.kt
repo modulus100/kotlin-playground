@@ -1,27 +1,27 @@
 package playground.bolt
 
-class Battlefield {
+//class Battlefield {
+//
+//    fun solve(): String {
+//        for (i in 3 downTo 0) {      // 4
+//            print(i)
+//        }
+//        println()
+//
+//        for (i in 0..5) {      // 4
+//            print(i)
+//        }
+//
+//        println()
+//
+//        return "works!"
+//    }
+//}
 
-    fun solve(): String {
-        for (i in 3 downTo 0) {      // 4
-            print(i)
-        }
-        println()
-
-        for (i in 0..5) {      // 4
-            print(i)
-        }
-
-        println()
-
-        return "works!"
-    }
-}
-
-fun main() {
-    val res = Battlefield().solve()
-    println(res)
-}
+//fun main() {
+//    val res = Battlefield().solve()
+//    println(res)
+//}
 
 import java.io.*;
 import java.util.*;
