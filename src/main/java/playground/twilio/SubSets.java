@@ -25,14 +25,10 @@ public class SubSets {
     }
 
     private <K, V> boolean areEqual(Map<K, V> first, Map<K, V> second) {
-        if (first.size() != second.size()) {
-            return false;
-        }
-
-        return first.entrySet().stream()
-                .allMatch(e -> e.getValue().equals(second.get(e.getKey())));
+        return first.size() == second.size() &&
+                first.entrySet().stream()
+                        .allMatch(e -> e.getValue().equals(second.get(e.getKey())));
     }
-
 
     public HashMap<String, Integer> toWideCountMap(List<String> subset) {
         final var countMap = new HashMap<String, Integer>();
