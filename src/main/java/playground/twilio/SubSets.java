@@ -13,7 +13,7 @@ public class SubSets {
         var filteredSubsets = subsets.stream()
                 .filter(item ->
                         item.stream().reduce("", String::concat).length() == 2)
-                .map(worker::toWideCountMap)
+                .map(worker::toFullCountMap)
                 .toList();
 
         System.out.println(filteredSubsets);
@@ -30,7 +30,7 @@ public class SubSets {
                         .allMatch(e -> e.getValue().equals(second.get(e.getKey())));
     }
 
-    public HashMap<String, Integer> toWideCountMap(List<String> subset) {
+    public HashMap<String, Integer> toFullCountMap(List<String> subset) {
         final var countMap = new HashMap<String, Integer>();
 
         for (String item : subset) {
